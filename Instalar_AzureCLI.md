@@ -1,4 +1,4 @@
-# *** Forma CORRECTA de instalar Azure CLI en Ubuntu 24.04 ***
+# * Forma CORRECTA de instalar Azure CLI en Ubuntu 24.04 *
 
 ### *** 1.- Instalar dependencias: ***
 
