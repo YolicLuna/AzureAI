@@ -42,7 +42,7 @@ Result saved in:  Galaxia.jpg
 
  ### **Imagen EPICA_OMEGA.jpg.**
 
- [EPICA](images/EPICA_OMEGA.jpg)
+ [EPICA_OMEGA](images/EPICA_OMEGA.jpg)
 
  Analyzing images/EPICA_OMEGA.jpg
 
