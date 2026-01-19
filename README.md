@@ -53,6 +53,62 @@ Crear_Agentes/
 
 ---
 
+#### 2. **Computer_vision**
+Segundo proyecto práctico implementando análisis de imágenes usando **Azure Computer Vision API**.
+
+**Descripción:**
+- Análisis automatizado de imágenes utilizando Azure AI Vision
+- Extrae información detallada: captions, etiquetas, objetos y detección de personas
+- Anotación visual de objetos y personas detectadas en las imágenes
+- Procesamiento de múltiples imágenes con parámetros dinámicos
+
+**Características principales:**
+- ✅ Análisis de captions (descripciones breves)
+- ✅ Dense captions (descripciones detalladas de múltiples regiones)
+- ✅ Generación automática de etiquetas (tags)
+- ✅ Detección y anotación de objetos
+- ✅ Detección y anotación de personas
+- ✅ Exportación de imágenes con cuadros delimitadores
+
+**Estructura:**
+```
+Computer_vision/
+├── Analisis_de_Imagenes.py     # Script principal de análisis
+├── Respuestas_obtenidas.md     # Documento con resultados del análisis
+├── requirements.txt             # Dependencias del proyecto
+├── .env                         # Variables de entorno (ver configuración abajo)
+├── images/                      # Carpeta con imágenes a analizar
+└── Imagenes_analisis/           # Carpeta con imágenes anotadas (resultados)
+```
+
+**Requisitos:**
+- Python 3.8+
+- Servicio Azure Computer Vision previamente creado
+- Credenciales de Azure (endpoint y API key)
+
+**Instalación:**
+1. Instala las dependencias:
+   ```bash
+   pip install -r Computer_vision/requirements.txt
+   ```
+
+2. Configura el archivo `.env`:
+   ```
+   AI_SERVICE_ENDPOINT='Aquí coloca el endpoint de tu Computer Vision creado en Microsoft Azure'
+   AI_SERVICE_KEY='Aquí coloca la API key de tu Computer Vision creado en Microsoft Azure'
+   ```
+
+3. Prepara tus imágenes en la carpeta `Computer_vision/images/`
+
+4. Ejecuta el script:
+   ```bash
+   python Computer_vision/Analisis_de_Imagenes.py images/nombre_imagen.jpg
+   ```
+
+5. Consulta los resultados del análisis en [Respuestas_obtenidas.md](Computer_vision/Respuestas_obtenidas.md)
+
+---
+
 ### 📚 Configuración General
 
 #### Instalación de Azure CLI (Ubuntu 24.04)
@@ -60,12 +116,23 @@ Se proporciona una guía completa en [Instalar_AzureCLI.md](Instalar_AzureCLI.md
 
 ---
 
+## ⚙️ Requisitos Previos Importantes
+
+**Antes de ejecutar cualquier proyecto en este repositorio, debes:**
+1. Crear los servicios necesarios en **Microsoft Azure** o **Microsoft Foundry**
+2. Obtener las credenciales correspondientes (endpoints, API keys, etc.)
+3. Configurar el archivo `.env` con esas credenciales
+4. **Los proyectos aquí documentados NO incluyen instrucciones para crear los servicios en Azure**
+
+Cada proyecto especifica qué servicio de Azure se requiere. Consulta la [documentación oficial de Microsoft](https://learn.microsoft.com/es-es/azure/ai/) para crear los servicios necesarios.
+
+---
+
 ## 🔐 Notas de Seguridad
 
 - Los archivos `.env` contienen variables de entorno sensibles y **no deben ser compartidos en repositorios públicos**
 - En este repositorio, las credenciales han sido reemplazadas por instrucciones para mayor claridad
-- Los recursos de prueba fueron eliminados después de validar el código en Microsoft Foundry
-
+- Los recursos de prueba fueron eliminados después de validar que código en funcionara
 ---
 
 ## 📖 Recursos de Aprendizaje
