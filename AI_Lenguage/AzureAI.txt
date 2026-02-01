@@ -1,0 +1,22 @@
+﻿Para que estp funcione correctamente, primero se debe crear un servicio de Azure Lenguage en Microsoft Azure.(https://portal.azure.com/#home)
+
+Despues, se deben crear variables de entorno que contengan el endpoint y la llave ya que la aplicación debe autenticarse
+para realizar solicitudes API.
+
+Para esto, desde la terminal y habiendo creado y activado nuestro entorno de desarrollo, 
+se deben ejecutar los siguientes comandos:
+
+export LANGUAGE_KEY=your-key
+
+export LANGUAGE_ENDPOINT=your-endpoint
+
+Debes reemplazar your-key y your-endpoint por la key y el endpoint que se te proporsionan desde
+tu proyecto en Microsoft Azure.
+
+Además de eso, debes instalar:
+
+pip install azure-ai-textanalytics==5.2.0
+
+
+
+Todo esto funciona para ambos archivos .py dentro de esta carpeta.

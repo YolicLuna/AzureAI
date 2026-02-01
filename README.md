@@ -109,6 +109,60 @@ Computer_vision/
 
 ---
 
+#### 3. **AI_Lenguage**
+Tercer proyecto práctico enfocado en **Azure AI Language Services** para procesamiento de texto natural.
+
+**Descripción:**
+- Prácticas de formación para la certificación **Azure AI-102**
+- Análisis de texto utilizando Azure AI Language Services
+- Detección automática de idiomas en documentos
+- Extracción de frases clave para análisis de contenido
+
+**Características principales:**
+- ✅ Detección de idiomas con hint de país
+- ✅ Extracción de frases clave
+- ✅ Autenticación con Azure mediante credenciales
+
+**Estructura:**
+```
+AI_Lenguage/
+├── Deteccion_Idioma.py          # Script de detección de idiomas
+├── Extraccion_frases_clave.py   # Script de extracción de frases clave
+├── AzureAI.txt                  # Guía de configuración y requisitos
+├── RESUMEN_PRACTICAS.md         # Documentación detallada de las prácticas
+└── .env                         # Variables de entorno (ver configuración abajo)
+```
+
+**Requisitos:**
+- Python 3.8+
+- Servicio Azure AI Language previamente creado
+- Credenciales de Azure (endpoint y API key)
+
+**Instalación:**
+1. Instala las dependencias:
+   ```bash
+   pip install azure-ai-textanalytics==5.2.0
+   ```
+
+2. Configura las variables de entorno:
+   ```bash
+   export LANGUAGE_KEY='your-key'
+   export LANGUAGE_ENDPOINT='your-endpoint'
+   ```
+
+3. Ejecuta los scripts:
+   ```bash
+   # Detección de idiomas
+   python AI_Lenguage/Deteccion_Idioma.py
+   
+   # Extracción de frases clave
+   python AI_Lenguage/Extraccion_frases_clave.py
+   ```
+
+Para más detalles, consulta [RESUMEN_PRACTICAS.md](AI_Lenguage/RESUMEN_PRACTICAS.md).
+
+---
+
 ### 📚 Configuración General
 
 #### Instalación de Azure CLI (Ubuntu 24.04)
