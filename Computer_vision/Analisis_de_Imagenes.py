@@ -50,7 +50,7 @@ def main():
             ],
         )
 
-        # Bloque para analozar la descripción de la imagen.
+        # Bloque para analizar la descripción de la imagen.
         if result.caption is not None:
             print('\nCaption:')
             print('Caption: "{}" (confidence: {:.2f}%)'.format(result.caption.text, result.caption.confidence * 100))

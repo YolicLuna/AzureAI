@@ -1,208 +1,228 @@
-# Prácticas en Azure AI 🚀
+# Azure AI - Prácticas para Certificación AI-102
 
-Repositorio de proyectos y prácticas para aprender Azure AI. Este espacio documenta mi progreso hacia una comprensión más profunda de las capacidades de inteligencia artificial en Microsoft Azure.
+Este repositorio contiene una colección de prácticas y ejercicios realizados como parte de la preparación para el examen de certificación **Microsoft Azure AI Engineer (AI-102)**.
 
-## Contenido del Repositorio
+## 📚 Descripción
 
-### 📁 Proyectos Completados
+Durante la preparación para obtener la certificación AI-102, se llevaron a cabo prácticas enfocadas en diferentes servicios de Azure AI. La mayoría del código fue adquirido a través de módulos de **Microsoft Learn**, donde se proporcionaban ejercicios guiados que fueron replicados y adaptados para profundizar en los conceptos de Inteligencia Artificial en Azure.
 
-#### 1. **Crear_Agentes**
-Primer proyecto práctico implementando agentes de IA usando **Azure AI Foundry**.
+---
 
-**Descripción:**
-- Creación de un agente de IA que resuelve problemas matemáticos
-- Utiliza la herramienta **CodeInterpreterTool** para ejecutar código y cálculos
-- Implementa un flujo de conversación con hilos (threads) para interacción usuario-agente
-- Demuestra autenticación con Azure mediante `DefaultAzureCredential`
+## 📁 Estructura del Proyecto
 
-**Características principales:**
-- ✅ Creación dinámica de agentes
-- ✅ Procesamiento de mensajes en hilos de conversación
-- ✅ Ejecución de instrucciones adicionales en runtime
-- ✅ Gestión de recursos (eliminación de agentes)
+El proyecto está organizado en cuatro carpetas principales, cada una enfocada en un aspecto diferente de Azure AI:
 
-**Estructura:**
-```
-Crear_Agentes/
-├── agente.py              # Script principal del agente
-├── requirements.txt       # Dependencias del proyecto
-└── .env                   # Variables de entorno (ver configuración abajo)
-```
+### 1. **AI_Lenguage** - Procesamiento de Lenguaje Natural
+**Ubicación:** `AI_Lenguage/`
+
+Prácticas relacionadas con el servicio **Azure AI Language** para procesar y analizar texto:
+
+- **Deteccion_Idioma.py**: Detecta automáticamente el idioma de un texto usando `TextAnalyticsClient`
+  - Utiliza el parámetro `country_hint` para mejorar la precisión
+  - Retorna el nombre del idioma detectado con su confianza
+
+- **Extraccion_frases_clave.py**: Extrae frases clave de un texto en español
+  - Analiza documentos para identificar términos relevantes
+  - Útil para búsqueda, categorización y análisis de sentimientos avanzados
+  - Retorna las frases clave identificadas
 
 **Requisitos:**
-- Python 3.8+
-- Cuenta en Microsoft Foundry (Azure AI)
-- Credenciales de Azure configuradas
+```bash
+pip install azure-ai-textanalytics==5.2.0
+```
 
-**Instalación:**
-1. Instala las dependencias:
-   ```bash
-   pip install -r Crear_Agentes/requirements.txt
-   ```
-
-2. Configura el archivo `.env`:
-   ```
-   Foundry_endpoint='Coloca aquí tu endpoint del proyecto creado en Microsoft Foundry'
-   Deployment_model='Coloca aquí el nombre del modelo que creaste y desplegaste en Microsoft Foundry'
-   ```
-
-3. Ejecuta el script:
-   ```bash
-   python Crear_Agentes/agente.py
-   ```
+**Configuración:** Se requieren variables de entorno:
+```bash
+export LANGUAGE_KEY=your-key
+export LANGUAGE_ENDPOINT=your-endpoint
+```
 
 ---
 
-#### 2. **Computer_vision**
-Segundo proyecto práctico implementando análisis de imágenes usando **Azure Computer Vision API**.
+### 2. **Computer_Vision** - Análisis de Imágenes
+**Ubicación:** `Computer_vision/`
 
-**Descripción:**
-- Análisis automatizado de imágenes utilizando Azure AI Vision
-- Extrae información detallada: captions, etiquetas, objetos y detección de personas
-- Anotación visual de objetos y personas detectadas en las imágenes
-- Procesamiento de múltiples imágenes con parámetros dinámicos
+Prácticas con el servicio **Azure AI Vision** para análisis avanzado de imágenes:
 
-**Características principales:**
-- ✅ Análisis de captions (descripciones breves)
-- ✅ Dense captions (descripciones detalladas de múltiples regiones)
-- ✅ Generación automática de etiquetas (tags)
-- ✅ Detección y anotación de objetos
-- ✅ Detección y anotación de personas
-- ✅ Exportación de imágenes con cuadros delimitadores
-
-**Estructura:**
-```
-Computer_vision/
-├── Analisis_de_Imagenes.py     # Script principal de análisis
-├── Respuestas_obtenidas.md     # Documento con resultados del análisis
-├── requirements.txt             # Dependencias del proyecto
-├── .env                         # Variables de entorno (ver configuración abajo)
-├── images/                      # Carpeta con imágenes a analizar
-└── Imagenes_analisis/           # Carpeta con imágenes anotadas (resultados)
-```
+- **Analisis_de_Imagenes.py**: Realiza un análisis completo de imágenes con múltiples características:
+  - **Captions**: Genera descripciones automáticas de la imagen
+  - **Dense Captions**: Proporciona descripciones detalladas de diferentes regiones
+  - **Tags**: Identifica etiquetas y categorías de la imagen
+  - **Objects**: Detecta objetos específicos y su ubicación
+  - **People**: Identifica personas y sus ubicaciones en la imagen
+  - Visualiza los resultados con bounding boxes usando `matplotlib` y `PIL`
 
 **Requisitos:**
-- Python 3.8+
-- Servicio Azure Computer Vision previamente creado
-- Credenciales de Azure (endpoint y API key)
+```bash
+pip install -r requirements.txt
+```
 
-**Instalación:**
-1. Instala las dependencias:
-   ```bash
-   pip install -r Computer_vision/requirements.txt
-   ```
-
-2. Configura el archivo `.env`:
-   ```
-   AI_SERVICE_ENDPOINT='Aquí coloca el endpoint de tu Computer Vision creado en Microsoft Azure'
-   AI_SERVICE_KEY='Aquí coloca la API key de tu Computer Vision creado en Microsoft Azure'
-   ```
-
-3. Prepara tus imágenes en la carpeta `Computer_vision/images/`
-
-4. Ejecuta el script:
-   ```bash
-   python Computer_vision/Analisis_de_Imagenes.py images/nombre_imagen.jpg
-   ```
-
-5. Consulta los resultados del análisis en [Respuestas_obtenidas.md](Computer_vision/Respuestas_obtenidas.md)
+Que incluye:
+- `python-dotenv`: Manejo de variables de entorno
+- `Pillow`: Procesamiento de imágenes
+- `matplotlib`: Visualización de gráficos
+- `azure-core`: Autenticación y comunicación
+- `azure-ai-vision`: Cliente de Azure Vision
+- `requests`: Solicitudes HTTP
 
 ---
 
-#### 3. **AI_Lenguage**
-Tercer proyecto práctico enfocado en **Azure AI Language Services** para procesamiento de texto natural.
+### 3. **Content_Understanding** - Análisis de Documentos
+**Ubicación:** `Content_Understanding/analisis_documentto/`
 
-**Descripción:**
-- Prácticas de formación para la certificación **Azure AI-102**
-- Análisis de texto utilizando Azure AI Language Services
-- Detección automática de idiomas en documentos
-- Extracción de frases clave para análisis de contenido
+Prácticas con **Azure Document Intelligence** (anteriormente Form Recognizer) para extracción de información de documentos:
 
-**Características principales:**
-- ✅ Detección de idiomas con hint de país
-- ✅ Extracción de frases clave
-- ✅ Autenticación con Azure mediante credenciales
-
-**Estructura:**
-```
-AI_Lenguage/
-├── Deteccion_Idioma.py          # Script de detección de idiomas
-├── Extraccion_frases_clave.py   # Script de extracción de frases clave
-├── AzureAI.txt                  # Guía de configuración y requisitos
-├── RESUMEN_PRACTICAS.md         # Documentación detallada de las prácticas
-└── .env                         # Variables de entorno (ver configuración abajo)
-```
+- **document-analysis.py**: Analiza documentos (facturas, recibos, etc.) usando modelos preentrenados
+  - Utiliza el modelo `prebuilt-invoice` para análisis de facturas
+  - Extrae campos específicos como:
+    - Nombre del vendedor
+    - Nombre del cliente
+    - Monto total de la factura
+  - Retorna valores con niveles de confianza
+  - Soporta análisis de documentos desde URL
 
 **Requisitos:**
-- Python 3.8+
-- Servicio Azure AI Language previamente creado
-- Credenciales de Azure (endpoint y API key)
+```bash
+pip install -r requirements.txt
+```
 
-**Instalación:**
-1. Instala las dependencias:
+Que incluye:
+- `python-dotenv`: Manejo de variables de entorno
+- `azure-ai-formrecognizer==3.3.3`: Cliente de Document Intelligence
+- `azure-core>=1.26.0`: Autenticación y comunicación
+
+**Posibles Mejoras:**
+- Analizar otros tipos de documentos (recibos, tarjetas de identificación, etc.)
+- Procesamiento por lotes de múltiples documentos
+- Entrenamiento de modelos personalizados
+
+---
+
+### 4. **Crear_Agentes** - Agentes de IA Conversacionales
+**Ubicación:** `Crear_Agentes/`
+
+Prácticas con **Agents en Azure AI Foundry** para crear agentes de IA conversacionales:
+
+- **agente.py**: Crea un agente de IA con capacidades avanzadas:
+  - Utiliza el servicio **Azure AI Projects** para gestionar agentes
+  - Integra la herramienta **Code Interpreter** para ejecutar código Python
+  - Implementa un sistema de hilos de conversación (threads)
+  - El agente puede responder preguntas matemáticas usando código
+  - Demuestra el ciclo completo: crear agente → crear hilo → enviar mensaje → procesar respuesta
+
+**Requisitos:**
+```bash
+pip install -r requirements.txt
+```
+
+Que incluye:
+- `azure-ai-projects`: Cliente para gestionar proyectos de IA
+- `azure-identity`: Autenticación con Azure
+- `python-dotenv`: Manejo de variables de entorno
+
+**Configuración:** Se requieren variables de entorno:
+```bash
+Foundry_endpoint=your-endpoint
+Deployment_model=your-model
+```
+
+---
+
+## 🛠️ Configuración General
+
+### Requisitos Previos
+- Python 3.7 o superior
+- Una cuenta de Microsoft Azure activa
+- Credenciales de acceso a los servicios de Azure AI
+
+### Entorno Virtual
+Se incluye un entorno virtual de Python (`labenv/`) que contiene todas las dependencias necesarias. Para usar el proyecto:
+
+1. **Activar el entorno virtual:**
+   - En Windows: `labenv\Scripts\activate.bat`
+   - En macOS/Linux: `source labenv/bin/activate`
+
+2. **Verificar instalación de paquetes:**
    ```bash
-   pip install azure-ai-textanalytics==5.2.0
+   pip list
    ```
 
-2. Configura las variables de entorno:
+3. **Instalar dependencias adicionales si es necesario:**
    ```bash
-   export LANGUAGE_KEY='your-key'
-   export LANGUAGE_ENDPOINT='your-endpoint'
+   pip install -r [ruta-a-requirements.txt]
    ```
 
-3. Ejecuta los scripts:
-   ```bash
-   # Detección de idiomas
-   python AI_Lenguage/Deteccion_Idioma.py
-   
-   # Extracción de frases clave
-   python AI_Lenguage/Extraccion_frases_clave.py
-   ```
+### Variables de Entorno
+Cada módulo requiere variables de entorno específicas. Se recomienda:
 
-Para más detalles, consulta [RESUMEN_PRACTICAS.md](AI_Lenguage/RESUMEN_PRACTICAS.md).
+1. Crear un archivo `.env` en la raíz del proyecto
+2. O en carpetas específicas con un archivo `env.txt`
+3. Los archivos de variables sensibles están incluidos en `.gitignore`
 
 ---
 
-### 📚 Configuración General
+## 📖 Fuentes y Referencias
 
-#### Instalación de Azure CLI (Ubuntu 24.04)
-Se proporciona una guía completa en [Instalar_AzureCLI.md](Instalar_AzureCLI.md) para configurar Azure CLI en sistemas Ubuntu/Debian.
+Todas las prácticas están basadas en módulos oficiales de **Microsoft Learn**:
 
----
-
-## ⚙️ Requisitos Previos Importantes
-
-**Antes de ejecutar cualquier proyecto en este repositorio, debes:**
-1. Crear los servicios necesarios en **Microsoft Azure** o **Microsoft Foundry**
-2. Obtener las credenciales correspondientes (endpoints, API keys, etc.)
-3. Configurar el archivo `.env` con esas credenciales
-4. **Los proyectos aquí documentados NO incluyen instrucciones para crear los servicios en Azure**
-
-Cada proyecto especifica qué servicio de Azure se requiere. Consulta la [documentación oficial de Microsoft](https://learn.microsoft.com/es-es/azure/ai/) para crear los servicios necesarios.
+- [Azure AI Language](https://learn.microsoft.com/es-es/training/modules/analyze-text-with-text-analytics-service/)
+- [Azure AI Vision](https://learn.microsoft.com/es-es/training/modules/analyze-images-computer-vision/)
+- [Document Intelligence](https://learn.microsoft.com/es-es/training/modules/extract-data-from-forms/)
+- [Azure AI Agents](https://learn.microsoft.com/es-es/training/modules/build-agents-azure-ai/)
 
 ---
 
-## 🔐 Notas de Seguridad
+## ✅ Aprendizajes Clave
 
-- Los archivos `.env` contienen variables de entorno sensibles y **no deben ser compartidos en repositorios públicos**
-- En este repositorio, las credenciales han sido reemplazadas por instrucciones para mayor claridad
-- Los recursos de prueba fueron eliminados después de validar que código en funcionara
+A través de estas prácticas se han adquirido competencias en:
+
+1. **Procesamiento de Lenguaje Natural (NLP)**
+   - Detección de idiomas multilingües
+   - Extracción de términos relevantes
+   - Comprensión del texto
+
+2. **Visión por Computadora**
+   - Análisis de contenido de imágenes
+   - Detección de objetos y personas
+   - Generación de descripciones automáticas
+
+3. **Extracción de Información de Documentos**
+   - Análisis de documentos estructurados
+   - Extracción de datos específicos
+   - Modelos preentrenados de Azure
+
+4. **Agentes de IA Conversacionales**
+   - Creación y gestión de agentes
+   - Integración de herramientas (Code Interpreter)
+   - Gestión de conversaciones con threads
+
+5. **Buenas Prácticas en Azure**
+   - Autenticación y seguridad
+   - Manejo de variables de entorno
+   - Gestión de recursos y limpieza
+
 ---
 
-## 📖 Recursos de Aprendizaje
+## 📝 Notas Importantes
 
-- [Documentación oficial de Azure AI](https://learn.microsoft.com/es-es/azure/ai/)
-- [Azure AI Agents Framework](https://learn.microsoft.com/es-es/azure/ai-studio/how-to/agents)
-- [Certificación AI-900](https://learn.microsoft.com/es-es/credentials/certifications/azure-ai-fundamentals/)
-- [Certificación AI-102](https://learn.microsoft.com/es-es/credentials/certifications/azure-ai-engineer/)
-- [Bootcamp Azure AI Engineer Associate](https://codigofacilito.com/programas/ai102-g5)
-
----
-
-## 📝 Notas
-
-Este repositorio refleja un proceso de aprendizaje continuo. Cada proyecto incluye comentarios detallados y se actualiza con nuevas prácticas conforme progreso en Azure AI.
+- Los recursos de Azure utilizados en cada práctica fueron eliminados después de completar el ejercicio para evitar cargos innecesarios
+- Algunos documentos de prueba pueden no estar disponibles (URL externas)
+- El código está comentado en español para mejor comprensión
+- Se recomienda seguir los módulos de Microsoft Learn para una comprensión profunda de cada tema
 
 ---
 
-**Última actualización:** 16 de enero de 2026
+## 🎯 Próximos Pasos
+
+Para continuar profundizando en Azure AI:
+
+- Explorar análisis de sentimientos con Text Analytics
+- Implementar traducción automática de textos
+- Crear modelos de clasificación personalizados
+- Desarrollar soluciones end-to-end combinando múltiples servicios
+- Preparar y presentar el examen AI-102
+
+---
+
+**Última actualización:** Marzo 2026  
+**Certificación objetivo:** Microsoft Azure AI Engineer (AI-102)

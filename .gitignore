@@ -1,0 +1,34 @@
+# Entornos virtuales
+labenv
+venv/
+env/
+ENV/
+.venv
+
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribuciones y construcción
+dist/
+build/
+*.egg-info/
+*.eggs/
+
+# Variables de entorno
+.env
+.env.local
+*.env
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
