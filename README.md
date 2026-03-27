@@ -10,7 +10,7 @@ Durante la preparación para obtener la certificación AI-102, se llevaron a cab
 
 ## 📁 Estructura del Proyecto
 
-El proyecto está organizado en cuatro carpetas principales, cada una enfocada en un aspecto diferente de Azure AI:
+El proyecto está organizado en cinco carpetas principales, cada una enfocada en un aspecto diferente de Azure AI:
 
 ### 1. **AI_Lenguage** - Procesamiento de Lenguaje Natural
 **Ubicación:** `AI_Lenguage/`
@@ -128,6 +128,45 @@ Deployment_model=your-model
 
 ---
 
+### 5. **Text_to_Speech** - Conversión de Texto a Voz
+**Ubicación:** `Text_to_Speech/`
+
+Proyecto que convierte texto extraído de un video a audio mediante **Azure Cognitive Services Speech**:
+
+- **extraccion_texto.py**: Extrae y procesa texto desde JSON generado por Video Indexer
+  - Utiliza Azure Video Indexer para analizar videos y extraer texto mediante OCR
+  - Descarga el JSON con los insights (ocr data)
+  - Elimina duplicados manteniendo el orden
+  - Genera archivo `texto_limpio.txt`
+
+- **text_speech.py**: Convierte texto a audio MP3
+  - Lee el texto procesado desde `texto_para_convertir.txt`
+  - Sintetiza voz usando Azure AI Services
+  - Utiliza voz neural `es-MX-DaliaNeural` (español de México natural)
+  - Genera archivo de audio `audio_final.mp3`
+
+**Flujo del Proyecto:**
+1. Texto extraído de video por Video Indexer (JSON)
+2. Conversión JSON → TXT con `extraccion_texto.py`
+3. Corrección manual de errores de OCR
+4. Síntesis de voz con `text_speech.py` usando Azure Speech Services
+
+**Requisitos:**
+```bash
+pip install -r requirements.txt
+```
+
+Que incluye:
+- `azure-cognitiveservices-speech`: Cliente de Azure para síntesis de voz
+
+**Configuración:** Se requieren variables de entorno:
+```bash
+export SPEECH_KEY=your-key
+export SPEECH_REGION=your-region
+```
+
+---
+
 ## 🛠️ Configuración General
 
 ### Requisitos Previos
@@ -169,6 +208,7 @@ Todas las prácticas están basadas en módulos oficiales de **Microsoft Learn**
 - [Azure AI Vision](https://learn.microsoft.com/es-es/training/modules/analyze-images-computer-vision/)
 - [Document Intelligence](https://learn.microsoft.com/es-es/training/modules/extract-data-from-forms/)
 - [Azure AI Agents](https://learn.microsoft.com/es-es/training/modules/build-agents-azure-ai/)
+- [Azure Speech Services](https://learn.microsoft.com/es-es/training/modules/recognize-synthesize-speech/)
 
 ---
 
@@ -196,7 +236,13 @@ A través de estas prácticas se han adquirido competencias en:
    - Integración de herramientas (Code Interpreter)
    - Gestión de conversaciones con threads
 
-5. **Buenas Prácticas en Azure**
+5. **Síntesis de Voz y Procesamiento de Audio**
+   - Extracción de texto de videos con Video Indexer
+   - Conversión de texto a voz con Azure Speech Services
+   - Voces neurales naturales en múltiples idiomas
+   - Pipeline completo: video → OCR → texto → audio
+
+6. **Buenas Prácticas en Azure**
    - Autenticación y seguridad
    - Manejo de variables de entorno
    - Gestión de recursos y limpieza
@@ -220,6 +266,8 @@ Para continuar profundizando en Azure AI:
 - Implementar traducción automática de textos
 - Crear modelos de clasificación personalizados
 - Desarrollar soluciones end-to-end combinando múltiples servicios
+- Integrar síntesis de voz con análisis de imágenes
+- Personalizar voces neurales en audio
 - Preparar y presentar el examen AI-102
 
 ---
